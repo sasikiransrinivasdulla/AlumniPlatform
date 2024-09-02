@@ -1,11 +1,11 @@
-// Script for smooth scrolling and other interactivity
-
-// Smooth scroll to sections
+// Smooth scroll to sections for internal page anchors only
 document.querySelectorAll('.navbar a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
+
+        // Only prevent default if the target is on the same page (internal anchor)
         if (target) {
+            e.preventDefault();
             target.scrollIntoView({ behavior: 'smooth' });
         }
     });
